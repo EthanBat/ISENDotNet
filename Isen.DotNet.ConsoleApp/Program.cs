@@ -7,8 +7,12 @@ namespace Isen.DotNet.ConsoleApp
     {
         static void Main(string[] args)
         {
-            string result = Hello.Greet("Ethan");
-            Console.WriteLine(result);
+           var world = Hello.world;
+           Console.WriteLine(world);
+           var greet = Hello.Greet("Ethan");
+           Console.WriteLine(greet);
+           var greetUpper = Hello.GreetUpper("Ethan");
+           Console.WriteLine(greetUpper);
         }
     }
 }
