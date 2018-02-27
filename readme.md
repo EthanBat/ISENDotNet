@@ -67,3 +67,16 @@ Depuis le dossier du projet Console :
  Commit git (penser à se remettre dans le dossier racine)
  `git add .`
  `git commit -m "Test project"`
+
+ ## Push du projet sur un repo remote
+ Créer un projet sur le serveur Git de votre choix (GitHub, GitLab, interne ISEN ...)  
+ L'url de mon repo est
+ https://github.com/EthanBat/ISENDotNet.git  
+ `git remote add origin https://github.com/EthanBat/ISENDotNet.git`  
+ Push en indiquant que master correspond à origin/master
+ `git push -u origin master`  
+
+ ## Ajout d'un tag Git
+ Créer le taf dans le repo local
+ `git tag v0.1`  
+Pusher le tag dans le remote repo`git push origin v0.1`
