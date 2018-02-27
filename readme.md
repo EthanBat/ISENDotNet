@@ -22,4 +22,9 @@ https://www.microsoft.com/net/download/core
 `dotnet run`
 
 ## Commit Git
-`git status`
+Depuis la racine du projet : 
+Etat des fichiers (non trackés) : `git status`  
+Tracker les fichiers : `git add .`
+Ils sont maintenant suivis : `git status`
+Commit : `git commit -m "Initial commit"`
+`git commit -a -m "updated readme"`
