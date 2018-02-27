@@ -10,10 +10,10 @@ namespace Isen.DotNet.ConsoleApp
         {
            var me = new Person()
            {
-               FirstName = "Ethan",
-               LastName = "Batarsé",
+               FirstName = "Françis",
+               LastName = "Béber",
                BirthDate = new DateTime(1995,6,23),
-               City = new City { Name = "Toulon" },
+               City = new City { Name = "Vezoul" },
            };
            Console.WriteLine(me);
         }
