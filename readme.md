@@ -79,4 +79,17 @@ Depuis le dossier du projet Console :
  ## Ajout d'un tag Git
  Créer le taf dans le repo local
  `git tag v0.1`  
-Pusher le tag dans le remote repo`git push origin v0.1`
+Pusher le tag dans le remote repo `git push origin v0.1`
+
+# Ajout d'un modèle
+Dans le projet Library :  
+* Créer un dossier Models/Implementation
+* Créer une classe `Person` : 
+  * `Id` (int)
+  * `Name` (string)
+  * `Firstname` (string)
+  * `LastName` (string)
+  * `BirthDate` (DateTime)
+* Créer une classe `City` :
+  * `Id` (int)
+  * `Name` (string)

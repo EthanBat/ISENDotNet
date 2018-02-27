@@ -1,5 +1,6 @@
 ﻿using System;
 using Isen.DotNet.Library;
+using Isen.DotNet.Library.Models.Implementation;
 
 namespace Isen.DotNet.ConsoleApp
 {
@@ -7,12 +8,14 @@ namespace Isen.DotNet.ConsoleApp
     {
         static void Main(string[] args)
         {
-           var world = Hello.world;
-           Console.WriteLine(world);
-           var greet = Hello.Greet("Ethan");
-           Console.WriteLine(greet);
-           var greetUpper = Hello.GreetUpper("Ethan");
-           Console.WriteLine(greetUpper);
+           var me = new Person()
+           {
+               FirstName = "Ethan",
+               LastName = "Batarsé",
+               BirthDate = new DateTime(1995,6,23),
+               City = new City { Name = "Toulon" },
+           };
+           Console.WriteLine(me);
         }
     }
 }
