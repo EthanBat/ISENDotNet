@@ -13,7 +13,7 @@ namespace Isen.DotNet.ConsoleApp
                FirstName = "Françis",
                LastName = "Béber",
                BirthDate = new DateTime(1995,6,23),
-               City = new City { Name = "Vezoul" },
+               City = new City { Name = "Vezoul" }
            };
            Console.WriteLine(me);
         }

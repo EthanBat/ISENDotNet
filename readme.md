@@ -82,6 +82,7 @@ Depuis le dossier du projet Console :
 Pusher le tag dans le remote repo `git push origin v0.1`
 
 # Ajout d'un modèle
+## Types Person et City
 Dans le projet Library :  
 * Créer un dossier Models/Implementation
 * Créer une classe `Person` : 
@@ -93,3 +94,8 @@ Dans le projet Library :
 * Créer une classe `City` :
   * `Id` (int)
   * `Name` (string)
+
+## Refactoring : extraction d'un BaseModel
+Les classes Person et City ont une partie de leur logique commune.
+Extraire ce qui suit est commun dans une classe abstraite `BaseModel`.
+La classe de base sera dans le dosser Models/Base 
