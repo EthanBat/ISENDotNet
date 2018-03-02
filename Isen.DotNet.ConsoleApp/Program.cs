@@ -37,7 +37,24 @@ namespace Isen.DotNet.ConsoleApp
             if (epinal != null) epinal.Name = "Epinal";
             cityRepository.UpdateRange(lyon,epinal);      
             foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
-            Console.WriteLine("- - - - - - - -");     
+            Console.WriteLine("- - - - - - - -");    
+
+            //ajout et mise à jour d'une personne
+            var jonDoe = new Person
+            {
+                FirstName = "Jon",
+                LastName = "DOE",
+                BirthDate = new DateTime(1975,8,11),
+                City = cityRepository.Single("Lyon")
+            };
+            foreach(var c in personRepository.GetAll()) Console.WriteLine(c);
+            Console.WriteLine("- - - - - - - -");    
+            var person2 = personRepository.Single(2);
+            person2.BirthDate =
+                person2.BirthDate.Value.AddYears(-100);
+            personRepository.UpdateRange(jonDoe, person2);
+            foreach(var c in personRepository.GetAll()) Console.WriteLine(c);
+            Console.WriteLine("- - - - - - - -");    
         }
     }
 }

@@ -143,3 +143,73 @@ Dans `IBaseRepository` et `BaseRepository`, ajouter les méthodes `UpdaeRange` s
   * Usage: `repo.UpdateRange(new List<T> {p1, p2 ,p3});`
 * DeleteRange(params T[] models)
   * Usage: `repo.UpdateRange(p1, p2,p3);`
+
+# Projet Asp.Net Core MVC
+## Création du projet
+Créer du dossier du projet. Depuis le dossier racine:
+`mkdir Isen.DotNet.Web && cd Isen.DotNet.Web`
+Ajouter un projet de type MVC :
+`dotnet new mvc`
+Référencer la librairie :
+`dotnet add reference ..\Isen.DotNet.Library\Isen.DotNet.Library.csproj` 
+Ajouter le projet web à la solution (depuis la racine de la solution) :
+`dotnet sln add Isen.DotNet.Web\Isen.DotNet.Web.csproj`
+Compiler / exécuter :
+`dotnet run`
+Ouvrir le navigateur :
+`http://localhost:5000`
+
+## Découvrir et nettoyer les vues
+Localiser les fichiers qui correspondent aux actions Index, About et Contact de la vue home.
+Vider ces vues.
+Ecrire le nom et l'url de la vue dans chacune des 3 actions.
+
+## Configurer la minification js et css
+A la racine du projet web, il y a un fichier bundleconfig.json
+Pour que la minification se fasse au build/run :
+`dotnet add package BuildBundlerMinifier`
+
+## Eléments de syntaxe Razor (moteur de templating)
+Dans Home/Index.cshtml, créer une liste C# des URL.
+Itérer pour afficher ces URL dans la grid Bootstrap.
+Pour afficher les erreurs cshtml détaillées :
+`set ASPNETCORE_ENVIRONMENT=Development` puis `dotnet run`
+Pour revenir au mode production  :
+`set ASPNETCORE_ENVIRONMENT=Production`
+
+## Vues imbriquées / Injections de vues
+Views/Shared/_Layout.cshtml est le template de toutes les pages.
+Les actions sont injectées au niveau de `@RenderBody`
+
+### Extraire le footer
+Créer dans le dossier `Views/Shared` un fichier `_Footer.cshtml`
+Localiser le contenu du footer dans Layout et le couper/coller vers Footer.
+Remplacer par un appel à ce footer avec `@Html.Partial("_Footer)`.
+
+## Extraire le menu
+Créer dans `Views/Shared` un fichier _Nav.cshtml
+Identifier le html correspondant au menu bootstrap
+Déplacer vers `_Nav`
+Injecter `_Nav` dans `_Layout`
+
+## Vues particulières et conventions
+### _Layout
+`_Layout` n'est **pas** appelée par convention. Elle est appelée par `_ViewStart.cshtml`
+ViewStart est appelée par convention de nommage, avant chaque chargement de vue.
+Ajouter du contenu dans ViewStart et voir où il tombe.
+
+### ViewImports
+`_ViewImports` permet de regrouper des @using utilisés par le C# embarqué dans les vues.
+
+### Layout alternatif
+Créer un nouveau fichier de Layout (dupliquer _Layout et l'appeler _LayoutEmpty.cshtml).
+Conserver la structure HTML, les imports CSS et JS, mais retirer toute la mise en forme et le menu.
+Modifier la vue About afin qu'elle utilise _LayoutEmpty.
+
+## Manipulation du menu Bootstrap
+Dans le fichier `_Nav.cshtml`, ajouter les éléments suivants (en dropdown) :
+* Villes
+  * Toutes...
+  * Nouvelle...  
+Ne pas mettre du lien pour l'instant, mettre # à la place des liens.
+Adapter un menu issu du site Bootstrap 3.3 (https://getbootstrap.com/docs/3.3/).
