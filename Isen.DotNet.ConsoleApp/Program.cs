@@ -14,59 +14,21 @@ namespace Isen.DotNet.ConsoleApp
                 new InMemoryCityRepository();
             IPersonRepository personRepository = 
                 new InMemoryPersonRepository(cityRepository);
-            
-            // Toutes les villes
-            foreach(var c in cityRepository.GetAll())
-                Console.WriteLine(c);
-            Console.WriteLine("- - - - - - - -");
 
-            // Toutes les personnes
-            foreach(var p in personRepository.GetAll())
-                Console.WriteLine(p);
+            //Etat initial des villes
+            foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
             Console.WriteLine("- - - - - - - -");
-
-            // Toutes les personnes nées après 1970
-            var personsBornAfter = personRepository
-                .Find(p => 
-                    p.BirthDate.HasValue &&
-                    p.BirthDate.Value.Year >= 1970);
-            foreach(var p in personsBornAfter)
-                Console.WriteLine(p);
+            // Ajouter une ville
+            var cannes = new City { Name = "Cannes" };
+            cityRepository.Update(cannes);
+            foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
             Console.WriteLine("- - - - - - - -");
-
-            // Trouver toutes les personnes avec age > 40
-            var personsOlderThan = personRepository
-                .Find(p =>
-                    p.Age.HasValue &&
-                    p.Age.Value >= 40);
-            foreach(var p in personsOlderThan)
-                Console.WriteLine(p);
-            Console.WriteLine("- - - - - - - -");
-
-            // Toutes les villes qui contiennent un e
-            var citiesWithE = cityRepository
-                .Find(c => 
-                    // IndexOf : équivalent de Contains()
-                    // Mais avec paramètre CurrentCultureIgnoreCase
-                    c.Name.IndexOf("e", 
-                        StringComparison.CurrentCultureIgnoreCase) >= 0);
-            foreach(var c in citiesWithE)
-                Console.WriteLine(c);
-            Console.WriteLine("- - - - - - - -");
-
-            // Effacer une ville
+            //Mettre à jour une ville
             var epinal = cityRepository.Single("Epinal");
-            cityRepository.Delete(epinal);
-            foreach(var c in cityRepository.GetAll())
-                Console.WriteLine(c);
-            Console.WriteLine("- - - - - - - -");
-                        
-            /*//Effacer une personne
-            personRepository.Delete();
-            foreach( var p in personRepository.GetAll())
-                Console.WriteLine(p);
-                System.Console.WriteLine("- - - - - -");
-            */
+            epinal.Name+= " sur mer";
+            cityRepository.Update(epinal);
+            foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
+            Console.WriteLine("- - - - - - - -");            
         }
     }
 }
