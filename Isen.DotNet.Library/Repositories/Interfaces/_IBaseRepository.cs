@@ -21,5 +21,7 @@ namespace Isen.DotNet.Library.Repositories.Interfaces
         void DeleteRange(IEnumerable<T> models);
         void DeleteRange(params T[] models);
         void Update(T model);
+        void UpdateRange(IEnumerable<T> models);
+        void UpdateRange(params T[] models);
     }
 }

@@ -31,7 +31,13 @@ namespace Isen.DotNet.ConsoleApp
             cityRepository.Update(epinal);
             foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
             Console.WriteLine("- - - - - - - -");   
-            }         
+            }
+            //ajout et mise à jour dans un même update
+            var lyon = new City {Name = "Lyon"};
+            if (epinal != null) epinal.Name = "Epinal";
+            cityRepository.UpdateRange(lyon,epinal);      
+            foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
+            Console.WriteLine("- - - - - - - -");     
         }
     }
 }
