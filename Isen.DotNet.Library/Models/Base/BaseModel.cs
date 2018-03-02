@@ -8,8 +8,6 @@ namespace Isen.DotNet.Library.Models.Base
         public virtual string Display =>
             $"[Id={Id}]|{Name}";
 
-
-        public override string ToString() =>
-            Display;
+        public override string ToString() => Display; 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Isen.DotNet.Library;
 using Isen.DotNet.Library.Models.Implementation;
+using Isen.DotNet.Library.Repositories.InMemory;
 
 namespace Isen.DotNet.ConsoleApp
 {
@@ -8,14 +9,11 @@ namespace Isen.DotNet.ConsoleApp
     {
         static void Main(string[] args)
         {
-           var me = new Person()
-           {
-               FirstName = "Françis",
-               LastName = "Béber",
-               BirthDate = new DateTime(1995,6,23),
-               City = new City { Name = "Vezoul" }
-           };
-           Console.WriteLine(me);
+            var cityRepo = new InMemoryCityRepository();
+            Console.WriteLine(cityRepo.Single(3));
+            Console.WriteLine(cityRepo.Single("Toulon"));
+            var allCities = cityRepo.GetAll();
+            foreach(var c in allCities) Console.WriteLine(c);
         }
     }
 }

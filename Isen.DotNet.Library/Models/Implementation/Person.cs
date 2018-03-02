@@ -11,17 +11,17 @@ namespace Isen.DotNet.Library.Models.Implementation
         public City City { get;set; }
 
         private string _name;
-        public override string Name
+        public override string Name 
         {
             get { return _name ?? $"{FirstName} {LastName}"; }
             set { _name = value; }
         }
 
         public int? Age => BirthDate.HasValue ?
-            (int?)(DateTime.Now - BirthDate.Value).Days / 365 :
+            (int?)((DateTime.Now - BirthDate.Value).Days / 365.25) : 
             null;
 
         public override string Display =>
-            $"{base.Display}|Age={Age}|City={City}";
+            $"{base.Display}|Age={Age}|City={City}"; 
     }
 }

@@ -16,14 +16,14 @@ namespace Isen.DotNet.Tests
         [Fact]
         public void Greet()
         {
-            var result = Hello.Greet("Ethan");
-            Assert.StartsWith("Hello Ethan it is", result);
+            var result = Hello.Greet("Kall");
+            Assert.StartsWith("Hello Kall, it is", result);
         }
         [Fact]
         public void GreetUpper()
         {
-            var result = Hello.GreetUpper("Ethan");
-            Assert.StartsWith("Hello ETHAN it is", result);
+            var result = Hello.GreetUpper("Kall");
+            Assert.StartsWith("Hello KALL, it is", result);
         }
     }
 }
