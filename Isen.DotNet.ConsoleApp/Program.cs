@@ -25,10 +25,13 @@ namespace Isen.DotNet.ConsoleApp
             Console.WriteLine("- - - - - - - -");
             //Mettre à jour une ville
             var epinal = cityRepository.Single("Epinal");
+            if (epinal != null)
+            {
             epinal.Name+= " sur mer";
             cityRepository.Update(epinal);
             foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
-            Console.WriteLine("- - - - - - - -");            
+            Console.WriteLine("- - - - - - - -");   
+            }         
         }
     }
 }
