@@ -108,3 +108,21 @@ Déplacer les 3 méthodes de l'interface vers IBaseRepository
 ## Refactoring Repository
 * Créer la classe abstraite Repositories/Base/_BaseRepository.cs  
 * Déplacer la logique de CityRepository vers cette classe  
+
+## Appliquer au modele Person
+* Dupliquer ICityRepository vers IPersonRepository et adapter ce qui doit l'être.  
+* Dupliquer InMemoryCityRepository afin de créer InMemoryPersonRepository.  
+
+## Ajouter une méthode de requête (Find)
+Dans `IBaseRepository<T>` et `BaseRepository<T>`, ajouter une méthode Find, qui prendra une fonction de filtrage en paramètre.  
+
+# CRUD
+* C = Create
+* R = Read
+* U = Update
+* D = Delete
+
+## Ajout du Delete
+Dans `IBaseRepository<T>` et `BaseRepository<T>`, ajouter 2 méthodes :
+* Delete(int id)
+* Delete(T model)
